@@ -19,6 +19,10 @@ df_first_table = pd.DataFrame(first_table_rows, columns=first_table_headers)
 print("Goalkeepers:")
 print(df_first_table)
 
+# simpan goalkeeper ke csv
+df_first_table.to_csv('chelsea_goalkeepers.csv', index=False, encoding='utf-8-sig')
+print("Goalkeepers data saved to chelsea_goalkeepers.csv")
+
 # data outfield players
 second_table = tables[1]
 second_table_headers = [header.text for header in second_table.find_all('th')]
@@ -28,3 +32,7 @@ second_table_rows = [[data.text.strip() for data in row.find_all('td')] for row 
 df_second_table = pd.DataFrame(second_table_rows, columns=second_table_headers)
 print("\nOutfield Players:")
 print(df_second_table)
+
+# simpan outfield players ke csv
+df_second_table.to_csv('chelsea_outfield_players.csv', index=False, encoding='utf-8-sig')
+print("Outfield players data saved to chelsea_outfield_players.csv")
